@@ -27,7 +27,6 @@
             z-index: -1;
         }
 
-        /* --- EFFETTO LIGHTNING BORDI --- */
         .lightning-border {
             position: relative;
             background: rgba(17, 17, 25, 0.9);
@@ -117,7 +116,6 @@
     </header>
 
     <main class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
-        
         <div class="lg:col-span-8 space-y-6">
             <div class="lightning-border rounded-xl overflow-hidden relative" style="--glow-color: #3b82f6;">
                 <div class="bg-blue-900/20 p-3 flex justify-between items-center border-b border-blue-500/20">
@@ -145,7 +143,7 @@
                 <h3 class="text-sm font-bold text-purple-400 mb-4 uppercase tracking-tighter">Security Status</h3>
                 <div class="space-y-1">
                     <p class="text-xl font-bold text-white">All up to date!</p>
-                    <p class="text-[10px] text-gray-500 font-bold">Last Update: 20/04/2026</p>
+                    <p class="text-[10px] text-gray-500 font-bold">Last Update: 22/04/2026</p>
                 </div>
             </div>
 
@@ -157,28 +155,6 @@
                     <li><i class="fas fa-check text-green-500 mr-2"></i> Memory Manipulation</li>
                     <li><i class="fas fa-check text-green-500 mr-2"></i> Script Injection</li>
                 </ul>
-            </div>
-        </div>
-
-        <div class="lg:col-span-12 mt-8">
-            <div class="glass-card p-8 rounded-xl border-t-2 border-blue-500/50 relative overflow-hidden">
-                <h2 class="text-2xl font-bold text-blue-400 mb-6 flex items-center gap-3">
-                    <i class="fas fa-tools"></i> What can be patched?
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-black/40 p-4 rounded-lg border border-blue-900/30 hover:border-blue-500/50 transition-colors">
-                        <p class="text-white font-bold mb-1">Roblox mismatch version</p>
-                        <p class="text-xs text-gray-500">Syncs your client with latest server builds.</p>
-                    </div>
-                    <div class="bg-black/40 p-4 rounded-lg border border-blue-900/30 hover:border-blue-500/50 transition-colors">
-                        <p class="text-white font-bold mb-1">Injection failed</p>
-                        <p class="text-xs text-gray-500">Fixes DLL attachment and thread persistence.</p>
-                    </div>
-                    <div class="bg-black/40 p-4 rounded-lg border border-blue-900/30 hover:border-blue-500/50 transition-colors">
-                        <p class="text-white font-bold mb-1">Decompiler and assets missing.</p>
-                        <p class="text-xs text-gray-500">Restores missing core assets and dependencies.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </main>
@@ -259,13 +235,21 @@
 
         function clearLogs() { terminal.innerHTML = '<p class="text-gray-500 italic">// Console cleared.</p>'; }
 
+        // --- FUNZIONE DI DOWNLOAD AGGIORNATA ---
         function downloadTestFile() {
-            const blob = new Blob(["EXECUTOR PATCHER v2.1\nStatus: Secure"], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url; a.download = 'ExecutorPatcher_Test.txt';
-            a.click();
-            addLog("Download started: ExecutorPatcher_Test.txt");
+            const githubUrl = "https://github.com/mamtfasctrmon104-ops/Executor-Patcher-V2.1/raw/main/ExecutorPatcher.rar";
+            
+            addLog("Requesting file from GitHub...");
+            
+            setTimeout(() => {
+                addLog("Secure tunnel established.");
+                // Avvia il download
+                window.location.href = githubUrl;
+            }, 1000);
+
+            setTimeout(() => {
+                addLog("Download started: ExecutorPatcher.rar");
+            }, 2000);
         }
     </script>
 </body>
